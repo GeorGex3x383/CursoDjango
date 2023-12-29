@@ -9,12 +9,11 @@
     <title>{% block title %}{% endblock %} | Juan Pérez</title>
 
     <!-- Estilos y fuentes del template  -->
-    {% load static %}
-    <link href="{% static 'core/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'core/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href="{% static 'core/css/clean-blog.min.css' %}" rel="stylesheet">
+    <link href="css/clean-blog.min.css" rel="stylesheet">
 
   </head>
 
@@ -47,15 +46,15 @@
       </div>
     </nav>
 
-    <!-- Cabecera-->
-    <header class="masthead" style="background-image: url('{% block blackground %}{% endblock %}')">
+    <!-- Cabecera -->
+    <header class="masthead" style="background-image: url('img/home-bg.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="site-heading">
-              {% block headers %}{% endblock %}
-              
+              <h1>Juan Pérez</h1>
+              <span class="subheading">Ingeniero Industrial</span>
             </div>
           </div>
         </div>
@@ -63,12 +62,7 @@
     </header>
 
     <!--Contenido-->
-    <div class="container">   
-        {% block content %}{% endblock %}
-      </div>  
-    </div>
-
-    {% if request.path != "/" %}<hr>{% endif %}
+    {% block content %}{% endblock %}
 
     <!-- Pié de página -->
     <footer>
@@ -108,9 +102,9 @@
     </footer>
 
     <!-- Bootstrap y Javascripts -->
-    <script src="{% static 'core/vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'core/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'core/js/clean-blog.min.js' %}"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/clean-blog.min.js"></script>
 
   </body>
 
