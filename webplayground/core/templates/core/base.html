@@ -32,11 +32,19 @@
               </li>
             </ul>
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="/admin/">
-                  {% if request.user.is_staff %}Admin{% else %}Acceder{% endif %}
-                </a>
-              </li>
+              {% if not request.user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login' %}">Acceder</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'signup' %}">Registro</a>
+                </li>
+              {% else %}
+                <div style="display: none;"><form name="formSignout" action="{% url 'logout' %}" method="post">{% csrf_token %}</form></div>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" onClick="document.formSignout.submit();return false">Salir</a>
+                </li>
+              {% endif %}
             </ul>
           </div>
         </div>
