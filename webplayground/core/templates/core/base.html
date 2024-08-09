@@ -43,6 +43,10 @@
                   <a class="nav-link" href="{% url 'signup' %}">Registro</a>
                 </li>
               {% else %}
+                <div style="display: none;"><form name="MessengerForm" action="{% url 'messenger:list' %}" method="post">{% csrf_token %}</form></div>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" onClick="document.MessengerForm.submit();return false">Mensajes</a>
+                </li>
                 <div style="display: none;"><form name="ProfileForm" action="{% url 'profile' %}" method="post">{% csrf_token %}</form></div>
                 <li class="nav-item">
                   <a class="nav-link" href="#" onClick="document.ProfileForm.submit();return false">Perfil</a>
